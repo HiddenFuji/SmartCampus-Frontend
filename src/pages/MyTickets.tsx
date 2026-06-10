@@ -85,20 +85,45 @@ export default function MyTickets() {
               boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
             }}
           >
-            <h3>{ticket.title}</h3>
-
-            <p>{ticket.description}</p>
-
-            <span
+            {/* HEADER ROW */}
+            <div
               style={{
-                ...getStatusStyle(ticket.status),
-                padding: "6px 12px",
-                borderRadius: "999px",
-                fontWeight: "bold",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+                gap: "12px",
               }}
             >
-              {ticket.status}
-            </span>
+              <h3 style={{ margin: 0, flex: 1 }}>
+                {ticket.title}
+              </h3>
+
+              <span
+                style={{
+                  ...getStatusStyle(ticket.status),
+                  padding: "6px 12px",
+                  borderRadius: "999px",
+                  fontWeight: "bold",
+                  whiteSpace: "nowrap",
+                  fontSize: "12px",
+                }}
+              >
+                {ticket.status}
+              </span>
+            </div>
+
+            {/* DESCRIPTION */}
+            <p
+              style={{
+                marginTop: "10px",
+                marginBottom: 0,
+                color: "#444",
+                lineHeight: "1.5",
+                wordBreak: "break-word",
+              }}
+            >
+              {ticket.description}
+            </p>
           </div>
         ))}
     </Layout>
